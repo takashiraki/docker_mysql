@@ -13,9 +13,8 @@ services:
     ports:
       - ${DB_PORT}:5432
     networks:
-      - my_proxy_network
+      - my_infra_network
 
 networks:
-  my_proxy_network:
-    external: true
-    name: my_proxy_network
+  my_infra_network:
+    name: my_infra_network
