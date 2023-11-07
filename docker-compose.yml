@@ -2,16 +2,15 @@ version: '3'
 
 services:
   db:
-    image: postgres
+    image: mysql
     container_name: my_database
     volumes:
-      - ./database/data:/var/lib/postgresql/data
-      - ./database/init:/docker-entrypoint-initdb.d
+      - ./database/data:/var/lib/mysql
     environment:
-      POSTGRES_PASSWORD: ${DB_PASSWORD}
-      POSTGRES_USER: ${DB_USER}
+      MYSQL_HOST: ${MYSQL_HOST}
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
     ports:
-      - ${DB_PORT}:5432
+      - ${DB_PORT}:3306
     networks:
       - my_infra_network
 
